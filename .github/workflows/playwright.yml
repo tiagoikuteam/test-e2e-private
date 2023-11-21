@@ -26,9 +26,9 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GH_TOKEN }}
-        publish_dir: ${{ github.workspace }}/test-results
-    - name: Create a commit
-      run: |
-        git add .github/workflows/playwright-test.yml
-        git commit -m "Add Playwright test workflow"
-        git push origin main
+        publish_dir: playwright-report/
+    # - name: Create a commit
+    #   run: |
+    #     git add .github/workflows/playwright-test.yml
+    #     git commit -m "Add Playwright test workflow"
+    #     git push origin main
