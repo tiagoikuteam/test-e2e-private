@@ -5,6 +5,10 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write
+      id-token: write
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
@@ -32,6 +36,8 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v2
+      with:
+        token: ${{ secrets.GH_TOKEN }}
     # - name: Deploy to GitHub Pages
     #   uses: peaceiris/actions-gh-pages@v3
     #   with:
