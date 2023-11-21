@@ -1,0 +1,24 @@
+{
+  "name": "test-e2e-private",
+  "version": "1.0.0",
+  "description": "cenas",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiagoikuteam/test-e2e-private.git"
+  },
+  "author": "Tiago Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiagoikuteam/test-e2e-private/issues"
+  },
+  "homepage": "https://github.com/tiagoikuteam/test-e2e-private#readme",
+  "dependencies": {
+    "playwright": "^1.40.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.9.3"
+  }
+}
