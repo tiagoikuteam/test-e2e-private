@@ -49,7 +49,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         BRANCH: main
         TARGET_FOLDER: playwright-report/test
-        FOLDER: playwright-report
+        FOLDER: 'playwright-report'
     # - name: Deploy to GitHub Pages
     #   uses: peaceiris/actions-gh-pages@v3
     #   with:
