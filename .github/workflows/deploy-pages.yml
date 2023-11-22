@@ -3,7 +3,9 @@ on:
   workflow_dispatch:
 jobs:
   test:
-    environment: e2e
+    environment:
+      name: e2e
+      url: 'https://tiagoikuteam.github.io/test-e2e-private/playwright-report/test'
     timeout-minutes: 60
     runs-on: ubuntu-latest
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
@@ -38,18 +40,18 @@ jobs:
       run: ls
     - name: Check list of playwright-report
       run: ls playwright-report
-    # - name: Deploy to GitHub Pages
-    #   id: deployment
-    #   uses: actions/deploy-pages@v2
-    #   with:
-    #     token: ${{ secrets.GH_TOKEN }}
     - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@3.7.1
+      id: deployment
+      uses: actions/deploy-pages@v2
       with:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        BRANCH: main
-        TARGET_FOLDER: playwright-report/test
-        FOLDER: 'playwright-report'
+        token: ${{ secrets.GH_TOKEN }}
+    # - name: Deploy to GitHub Pages
+    #   uses: JamesIves/github-pages-deploy-action@3.7.1
+    #   with:
+    #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+    #     BRANCH: main
+    #     TARGET_FOLDER: playwright-report/test
+    #     FOLDER: 'playwright-report'
     # - name: Deploy to GitHub Pages
     #   uses: peaceiris/actions-gh-pages@v3
     #   with:
