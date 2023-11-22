@@ -34,11 +34,18 @@ jobs:
       with:
         # Upload entire repository
         path: 'playwright-report/'
+    # - name: Deploy to GitHub Pages
+    #   id: deployment
+    #   uses: actions/deploy-pages@v2
+    #   with:
+    #     token: ${{ secrets.GH_TOKEN }}
     - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v2
+      uses: JamesIves/github-pages-deploy-action@4
       with:
-        token: ${{ secrets.GH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        BRANCH: docs
+        TARGET_FOLDER: /playwright-report/test
+        FOLDER: playwright-report
     # - name: Deploy to GitHub Pages
     #   uses: peaceiris/actions-gh-pages@v3
     #   with:
