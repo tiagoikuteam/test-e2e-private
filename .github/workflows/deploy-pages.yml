@@ -43,7 +43,7 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        BRANCH: docs
+        BRANCH: main
         TARGET_FOLDER: /playwright-report/test
         FOLDER: playwright-report
     # - name: Deploy to GitHub Pages
