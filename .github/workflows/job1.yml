@@ -2,7 +2,9 @@ name: Fail job1
 on:
   workflow_call:
     outputs:
-      job1_status: ${{ jobs.fail.outputs.job1_status }}
+      job1_status:
+        description: "coisas job1"
+        value: ${{ jobs.fail.outputs.job1_status }}
 jobs:
   fail:
     environment:
