@@ -6,9 +6,11 @@ jobs:
     environment:
       name: e2e
     runs-on: ubuntu-latest
+    outputs:
+      job1_status: ${{ steps.checkStep.outputs.job1_status }}
     steps:
       - name: force fail
         run: exit 1
       - name: check the run status
         if: failure()
-        run: echo "this job has failed"
+        run: echo "job1_status=failed" >> "$GITHUB_OUTPUT"

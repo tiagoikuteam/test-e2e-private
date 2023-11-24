@@ -4,10 +4,10 @@ on:
     inputs:
       job1_status:
         required: true
-        type: boolean
+        type: string
       job2_status:
         required: false
-        type: boolean
+        type: string
       
 jobs:
   fail:
@@ -18,6 +18,6 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       - name: check the job 1 status
-        run: gh run view job1
+        run: echo "job2 - ${{ inputs.job1_status }}"
       - name: check the job 2 status
-        run: gh run view job2
+        run: echo "job2 - ${{ inputs.job2_status }}"

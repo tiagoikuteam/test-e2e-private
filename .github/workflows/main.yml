@@ -16,6 +16,6 @@ jobs:
     if: ${{ !cancelled() }}
     uses: ./.github/workflows/final-job.yml
     with:
-      job1_status: true
-      job2_status: false
+      job1_status: ${{ needs.job1.outputs.job1_status }}
+      job2_status: ${{ needs.job2.outputs.job2_status }}
     secrets: inherit

@@ -6,9 +6,12 @@ jobs:
     environment:
       name: e2e
     runs-on: ubuntu-latest
+    outputs:
+      job2_status: ${{ steps.checkStep.outputs.job2_status }}
     steps:
       - name: force pass
         run: echo "bom dia"
       - name: check the run status
+        id: checkStep
         if: success()
-        run: echo "this job has sucess"
+        run: echo "job2_status=success" >> "$GITHUB_OUTPUT"
