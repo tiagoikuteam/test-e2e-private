@@ -2,12 +2,14 @@ name: Fail job1
 on:
   workflow_call:
     outputs:
-      job1_status: ${{ steps.checkStep.outputs.job1_status }}
+      job1_status: ${{ jobs.fail.outputs.job1_status }}
 jobs:
   fail:
     environment:
       name: e2e
     runs-on: ubuntu-latest
+    outputs:
+      job1_status: ${{ steps.checkStep.outputs.job1_status }}
     steps:
       - name: force fail
         run: exit 1

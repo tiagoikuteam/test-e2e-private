@@ -2,12 +2,14 @@ name: sucess job2
 on:
   workflow_call:
     outputs:
-      job2_status: ${{ steps.checkStep.outputs.job2_status }}
+      job2_status: ${{ jobs.fail.outputs.job2_status }}
 jobs:
   fail:
     environment:
       name: e2e
     runs-on: ubuntu-latest
+    outputs:
+      job2_status: ${{ steps.checkStep.outputs.job2_status }}
     steps:
       - name: force pass
         run: echo "bom dia"
