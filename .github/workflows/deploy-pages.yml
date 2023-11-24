@@ -22,8 +22,8 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
-    - name: Print a varible that does not exists
-      run: echo $bom_dia
+    - name: force fail
+      run: exit 1
     - name: check the run status
       if: failure()
       run: echo "this job has failed"
