@@ -18,3 +18,4 @@ jobs:
     with:
       job1_status: true
       job2_status: false
+    secrets: inherit
