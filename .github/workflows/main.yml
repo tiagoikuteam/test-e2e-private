@@ -5,14 +5,18 @@ on:
 jobs:
   job1:
     uses: ./.github/workflows/job1.yml
+    outputs:
+      job1_status: ${{ steps.checkStep.outputs.job1_status }}
 
   job2:
     needs: job1
     if: ${{ !cancelled() }}
     uses: ./.github/workflows/job2.yml
+    outputs:
+      job2_status: ${{ steps.checkStep.outputs.job2_status }}
 
   final:
-    needs: job2
+    needs: [job1, job2]
     if: ${{ !cancelled() }}
     uses: ./.github/workflows/final-job.yml
     with:
