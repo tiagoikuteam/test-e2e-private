@@ -1,6 +1,14 @@
 name: final job
 on:
   workflow_call:
+    inputs:
+      job1_status:
+        required: true
+        type: boolean
+      job2_status:
+        required: false
+        type: boolean
+      
 jobs:
   fail:
     environment:
@@ -8,6 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check the job 1 status
-        run: echo "job1 status - ${{ needs.job1.status }}"
+        run: echo "job1 status - ${{ inputs.job1_status }}"
       - name: check the job 2 status
-        run: echo "job2 status - ${{ needs.job2.status }}"
+        run: echo "job2 status - ${{ inputs.job2_status }}"

@@ -15,3 +15,6 @@ jobs:
     needs: job2
     if: ${{ !cancelled() }}
     uses: ./.github/workflows/final-job.yml
+    with:
+      job1_status: ${{ job1.status }}
+      job2_status: ${{ job2.status }}
