@@ -1,0 +1,12 @@
+name: final job
+on:
+  workflow_dispatch:
+jobs:
+  fail:
+    environment:
+      name: e2e
+    steps:
+      - name: check the job 1 status
+        run: echo "job1 status - ${{ needs.job1.status }}"
+      - name: check the job 2 status
+        run: echo "job2 status - ${{ needs.job2.status }}"

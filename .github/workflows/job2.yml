@@ -1,0 +1,13 @@
+name: sucess job2
+on:
+  workflow_dispatch:
+jobs:
+  fail:
+    environment:
+      name: e2e
+    steps:
+    - name: force pass
+      run: echo "bom dia"
+    - name: check the run status
+      if: sucess()
+      run: echo "this job has sucess"

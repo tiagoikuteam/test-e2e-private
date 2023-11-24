@@ -1,0 +1,13 @@
+name: Fail job1
+on:
+  workflow_dispatch:
+jobs:
+  fail:
+    environment:
+      name: e2e
+    steps:
+    - name: force fail
+      run: exit 1
+    - name: check the run status
+      if: failure()
+      run: echo "this job has failed"

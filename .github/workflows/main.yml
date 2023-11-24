@@ -1,0 +1,17 @@
+name: Main
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    uses: ./.github/workflows/job1.yml
+
+  job2:
+    needs: job1
+    if: ${{ !cancelled() }}
+    uses: ./.github/workflows/job2.yml
+
+  final:
+    needs: job2
+    if: ${{ !cancelled() }}
+    uses: ./.github/workflows/final-job.yml
