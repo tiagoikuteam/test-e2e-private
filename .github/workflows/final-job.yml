@@ -1,6 +1,6 @@
 name: final job
 on:
-  workflow_dispatch:
+  workflow_call:
 jobs:
   fail:
     environment:
