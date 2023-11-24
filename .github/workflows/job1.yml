@@ -5,9 +5,10 @@ jobs:
   fail:
     environment:
       name: e2e
+    runs-on: ubuntu-latest
     steps:
-    - name: force fail
-      run: exit 1
-    - name: check the run status
-      if: failure()
-      run: echo "this job has failed"
+      - name: force fail
+        run: exit 1
+      - name: check the run status
+        if: failure()
+        run: echo "this job has failed"

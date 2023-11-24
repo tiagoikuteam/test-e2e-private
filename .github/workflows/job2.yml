@@ -5,9 +5,10 @@ jobs:
   fail:
     environment:
       name: e2e
+    runs-on: ubuntu-latest
     steps:
-    - name: force pass
-      run: echo "bom dia"
-    - name: check the run status
-      if: sucess()
-      run: echo "this job has sucess"
+      - name: force pass
+        run: echo "bom dia"
+      - name: check the run status
+        if: sucess()
+        run: echo "this job has sucess"

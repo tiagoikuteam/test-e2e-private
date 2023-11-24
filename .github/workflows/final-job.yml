@@ -5,6 +5,7 @@ jobs:
   fail:
     environment:
       name: e2e
+    runs-on: ubuntu-latest
     steps:
       - name: check the job 1 status
         run: echo "job1 status - ${{ needs.job1.status }}"
