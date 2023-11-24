@@ -16,5 +16,6 @@ jobs:
       - name: force fail
         run: exit 1
       - name: check the run status
+        id: checkStep
         if: failure()
         run: echo "job1_status=failed" >> "$GITHUB_OUTPUT"
