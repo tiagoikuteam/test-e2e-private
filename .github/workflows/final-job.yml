@@ -16,6 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check the job 1 status
-        run: echo "job1 status - ${{ inputs.job1_status }}"
+        run: gh run view job1
       - name: check the job 2 status
-        run: echo "job2 status - ${{ inputs.job2_status }}"
+        run: gh run view job2
